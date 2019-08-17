@@ -56,5 +56,5 @@ if (workbox) {
     workbox.core.clientsClaim();
 
 } else {
-    console.log("Oops! Workbox didn't load ðŸ‘º");
+    console.log("Oops! Workbox didn't load");
 }
