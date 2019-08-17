@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Junyao Ren">
+
+  <title>Molar Conversion</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#333" />
+
+  <script src="js/app.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+  <div class="container col-lg-5">
+    <div class="py-5 text-center">
+      <h2>Molar Converter</h2>
+      <p class="lead">This app lets you to convert the weight (weight concentration) in the molar quantity (molar concentration) and vice versa conveniently.</p>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md order-md-1">
+
+        <form name="prot" id="prot">
+          <p><b>Molecular weight [kDa]:</b></p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="M" onChange="Mrec()" placeholder="Enter MW in kDa..." required>
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="reset" value="Reset" onClick="res()">Reset</button>
+            </div>
+          </div>
+
+
+
+
+          <div class="table text-center">
+            <h5 class="text-danger">"Calculation of the weight from the molar concentration"</h5>
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" size=5 value=1 name="c_4" onChange='conv4()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dc4" onChange='conv4()'>
+                      <option>&nbsp;&nbsp;M&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;mM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;M&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;nM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;aM&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-1">
+                  <p class="lead">in</p>
+                </div>
+
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 value=1 name="v4" onChange='conv4()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dv4" onChange='conv4()'>
+                      <option>&nbsp;&nbsp;l&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ml&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;&micro;l&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;nl&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pl&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fl&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="col-md-auto mb-1">
+                  <label>
+                    <input class="btn btn-secondary form-control"   size=5 value="Calc" onClick="conv4()">
+                  </label>
+                </div>
+
+
+                <div class="col-md-8 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 name="m4" onFocus="this.blur()">
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dm4" onChange='rclc4()'>
+                      <option>&nbsp;&nbsp;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ng&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fg&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <br>
+
+          <div class="table text-center">
+            <h5 class="text-danger">"Calculation of the molar concentration"</h5>
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" size=5 value=1 name="m3" onChange='conv3()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dm3" onChange='conv3()'>
+                      <option>&nbsp;&nbsp;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mg&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;&micro;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ng&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fg&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-1">
+                  <p class="lead">in</p>
+                </div>
+
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 value=1  name="v3" onChange='conv3()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dv3" onChange='conv3()'>
+                      <option>&nbsp;&nbsp;l&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ml&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;&micro;l&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;nl&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pl&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fl&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="col-md-auto mb-1">
+                  <label>
+                    <input class="btn btn-secondary form-control"   size=5 value="Calc" onClick="conv3()">
+                  </label>
+                </div>
+
+
+                <div class="col-md-8 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 name="c3" onFocus="this.blur()">
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dc3" onChange='rclc3()'>
+                      <option>&nbsp;&nbsp;M&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;M&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;nM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fM&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;aM&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="table text-center">
+            <h5 class="text-danger">"weight" --> "mole"</h5>
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" size=5 value=1 name="m1" onChange='conv1()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dm1" onChange='conv1()'>
+                      <option>&nbsp;&nbsp;pg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mg&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;&micro;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ng&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fg&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-auto mb-1">
+                  <label>
+                    <input class="btn btn-secondary form-control"   size=5 value="Calc" onClick="conv1()">
+                  </label>
+                </div>
+
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 name="q1" onFocus="this.blur()">
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dq1" onChange='rclc1()'>
+                      <option>&nbsp;&nbsp;mol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;mol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;nmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;amol&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="table text-center">
+            <h5 class="text-danger">"mole" --> "weight"</h5>
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" size=5 value=1 name="q2" onChange='conv2()'>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dq2" onChange='conv2()'>
+                      <option>&nbsp;&nbsp;mol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;mol&nbsp;&nbsp;
+                      <option selected>&nbsp;&nbsp;nmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fmol&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;amol&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-auto mb-1">
+                  <label>
+                    <input class="btn btn-secondary form-control"   size=5 value="Calc" onClick="conv2()">
+                  </label>
+                </div>
+
+                <div class="col-md-5 form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" size=5 name="m2" onFocus="this.blur()">
+                  </div>
+                  <div class="col-md-6">
+                    <select class="custom-select" name="Dm2" onChange='rclc2()'>
+                      <option>&nbsp;&nbsp;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;mg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;&micro;g&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;ng&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;pg&nbsp;&nbsp;
+                      <option>&nbsp;&nbsp;fg&nbsp;&nbsp;
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+        </form>
+
+
+
+
+      </div>
+    </div>
+
+
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2019-2020 Junyao Ren</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="mailto: renjunyao@gmail.com">Support</a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+</body>
+</html>
